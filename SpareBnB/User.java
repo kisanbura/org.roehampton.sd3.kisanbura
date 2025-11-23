@@ -1,40 +1,32 @@
 public class User {
-    private String firstname;
-    private String secondname;
-    private int phonenumber;
-    private String email;
+    private String firstName;
+    private String secondName;
+    private int phoneNumber;
+    private String dob;
 
-    public User(String firstname, String secondname, int phonenumber, String email){
-        this.firstname = firstname;
-        this.secondname = secondname;
-        this.phonenumber = phonenumber;
-        this.email = email;
-
+    public User(String firstName, String secondName, int phoneNumber, String dob) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.phoneNumber = phoneNumber;
+        this.dob = dob;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
+    public String getSecondName() { return secondName; }
+    public void setSecondName(String secondName) { this.secondName = secondName; }
+
+    public int getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public String getDob() { return dob; }
+    public void setDob(String dob) { this.dob = dob; }
+
+    public void printUser() {
+        System.out.println("User: " + firstName + " " + secondName);
+        System.out.println("Phone: " + phoneNumber);
+        System.out.println("DOB: " + dob);
+        System.out.println("-----------------------------------");
     }
-    public void setFirstname (String firstname){
-        this.firstname = firstname;
-    }
-
-    public String getSecondname() {
-        return secondname;}
-
-    public void setSecondname(String secondname){
-        this.secondname = secondname;
-
-    }
-
-    public int getPhonenumber(){
-        return phonenumber;
-    }
-
-
 }
-
-
-
-
