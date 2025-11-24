@@ -1,20 +1,18 @@
-public class BnB extends Accommodation {
-    private boolean breakfastIncluded;
-    private boolean privateBathroom;
-    private boolean hasGarden;
+import java.util.List;
 
-    public BnB(String name, String location, double pricePerNight, int capacity, Facility facility,
-               boolean breakfastIncluded, boolean privateBathroom, boolean hasGarden) {
-        super(name, location, pricePerNight, capacity, facility);
-        this.breakfastIncluded = breakfastIncluded;
-        this.privateBathroom = privateBathroom;
-        this.hasGarden = hasGarden;
+public class BnB extends Accommodation {
+
+    private int roomCount; // NEW unique field
+
+    public BnB(String name, String location, double pricePerNight, int capacity,
+               List<Facility> facilities, int roomCount) {
+
+        super(name, location, pricePerNight, capacity, facilities);
+        this.roomCount = roomCount;
     }
 
     @Override
     public String getDescription() {
-        return (breakfastIncluded ? "Breakfast included, " : "") +
-                (privateBathroom ? "Private bathroom, " : "Shared bathroom, ") +
-                (hasGarden ? "Has a garden" : "No garden");
+        return "A cosy Bed & Breakfast with " + roomCount + " rooms.";
     }
 }
