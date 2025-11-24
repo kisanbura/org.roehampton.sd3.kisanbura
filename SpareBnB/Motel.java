@@ -1,22 +1,18 @@
-public class Motel extends Accommodation {
-    private boolean parkingAvailable;
-    private boolean hasEVCharging;
-    private boolean petFriendly;
+import java.util.List;
 
-    public Motel(String name, String location, double pricePerNight, int capacity, Facility facility,
-                 boolean parkingAvailable, boolean hasEVCharging, boolean petFriendly) {
-        super(name, location, pricePerNight, capacity, facility);
-        this.parkingAvailable = parkingAvailable;
-        this.hasEVCharging = hasEVCharging;
-        this.petFriendly = petFriendly;
+public class Motel extends Accommodation {
+
+    private int parkingSpaces; // NEW unique field
+
+    public Motel(String name, String location, double pricePerNight, int capacity,
+                 List<Facility> facilities, int parkingSpaces) {
+
+        super(name, location, pricePerNight, capacity, facilities);
+        this.parkingSpaces = parkingSpaces;
     }
 
     @Override
     public String getDescription() {
-        return "Motel with " +
-                (parkingAvailable ? "parking, " : "") +
-                (hasEVCharging ? "EV charging, " : "") +
-                (petFriendly ? "pet friendly" : "no pets allowed");
+        return "A roadside Motel with " + parkingSpaces + " parking spaces.";
     }
 }
-
