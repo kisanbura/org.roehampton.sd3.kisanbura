@@ -1,21 +1,21 @@
-public class User {
+public class User {   //user info
     private String fullName;
     private int phoneNumber;
     private String dob;
     private String email;
 
-    public User(String fullName, int phoneNumber, String dob, String email) {
-        this.fullName = fullName;
+    public User(String fullName, int phoneNumber, String dob, String email) { //constructor
+        this.fullName = fullName;  //saves values
         this.phoneNumber = phoneNumber;
         this.dob = dob;
         this.email = email;
     }
 
-    public String getFullName() {
+    public String getFullName() { //returns value stored in fullname - encapsulation
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public void setFullName(String fullName) { // updates the users fullname
         this.fullName = fullName;
     }
 
