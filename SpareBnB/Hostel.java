@@ -1,24 +1,17 @@
-public class Hostel extends Accommodation {
-    private int dormRooms;
-    private boolean sharedKitchen;
-    private boolean hasLaundryRoom;
-    private boolean hasLoungeArea;
+import java.util.List;
 
-    public Hostel(String name, String location, double pricePerNight, int capacity, Facility facility,
-                  int dormRooms, boolean sharedKitchen, boolean hasLaundryRoom, boolean hasLoungeArea) {
-        super(name, location, pricePerNight, capacity, facility);
-        this.dormRooms = dormRooms;
-        this.sharedKitchen = sharedKitchen;
-        this.hasLaundryRoom = hasLaundryRoom;
-        this.hasLoungeArea = hasLoungeArea;
+public class Hotel extends Accommodation {
+
+    private int starRating;
+
+    public Hotel(String name, String location, double pricePerNight, int capacity,
+                 List<Facility> facilities, int starRating) {
+        super(name, location, pricePerNight, capacity, facilities);
+        this.starRating = starRating;
     }
 
     @Override
     public String getDescription() {
-        return "Hostel with " + dormRooms + " dorm rooms, " +
-                (sharedKitchen ? "shared kitchen, " : "") +
-                (hasLaundryRoom ? "laundry room, " : "") +
-                (hasLoungeArea ? "lounge area" : "");
+        return starRating + "★ luxury hotel";
     }
 }
-
