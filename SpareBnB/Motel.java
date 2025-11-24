@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Motel extends Accommodation {
 
-    private int parkingSpaces; // NEW unique field
+    private int parkingSpaces; // unique property
 
     public Motel(String name, String location, double pricePerNight, int capacity,
                  List<Facility> facilities, int parkingSpaces) {
