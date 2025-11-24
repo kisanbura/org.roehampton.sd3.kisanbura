@@ -1,17 +1,17 @@
 import java.util.List;
 
-public class Hotel extends Accommodation {
+public class Hostel extends Accommodation {
 
-    private int starRating;
+    private int dormRooms; //unique property
 
-    public Hotel(String name, String location, double pricePerNight, int capacity,
-                 List<Facility> facilities, int starRating) {
+    public Hostel(String name, String location, double pricePerNight, int capacity,
+                  List<Facility> facilities, int dormRooms) {
         super(name, location, pricePerNight, capacity, facilities);
-        this.starRating = starRating;
+        this.dormRooms = dormRooms;
     }
 
     @Override
     public String getDescription() {
-        return starRating + "★ luxury hotel";
+        return "Hostel with " + dormRooms + " shared dorm rooms";
     }
 }
