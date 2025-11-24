@@ -1,2 +1,4 @@
 # org.roehampton.sd3.kisanbura
-SD3 Coursework SpareBnB
+This is the Coursework for SD3 SpareBnB 
+Student iD: BUR22529747
+Kisan Bura
