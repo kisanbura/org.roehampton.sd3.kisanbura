@@ -1,46 +1,102 @@
+import java.util.List;
+
 public abstract class Accommodation {
+
     private String name;
     private String location;
     private double pricePerNight;
     private int capacity;
-    private Facility facility; // Composition: Accommodation has-a Facility
+    private List<Facility> facilities;
+    private User bookedBy = null;
 
-    // Constructor
-    public Accommodation(String name, String location, double pricePerNight, int capacity, Facility facility) {
+    public Accommodation(String name, String location, double pricePerNight, int capacity, List<Facility> facilities) {
         this.name = name;
         this.location = location;
         this.pricePerNight = pricePerNight;
         this.capacity = capacity;
-        this.facility = facility;
+        this.facilities = facilities;
     }
 
-    // Getters and Setters (Encapsulation)
-    public String getName() { return name; }
-    public String getLocation() { return location; }
-    public double getPricePerNight() { return pricePerNight; }
-    public int getCapacity() { return capacity; }
-    public Facility getFacility() { return facility; }
-    public void setPricePerNight(double pricePerNight) { this.pricePerNight = pricePerNight; }
+    public String getName() {
+        return name;
+    }
 
-    // New Method: Calculate total price for given nights
+    public String getLocation() {
+        return location;
+    }
+
+    public double getPricePerNight() {
+        return pricePerNight;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public List<Facility> getFacilities() {
+        return facilities;
+    }
+
+    public User getBookedBy() {
+        return bookedBy;
+    }
+
+    /**
+     * Attempts to book the accommodation.
+     * Prints NOTHING — to avoid double-printing.
+     */
+    public boolean book(User user) {
+        if (bookedBy != null) {
+            return false; // Already booked
+        }
+        bookedBy = user;
+        return true; // Booking successful
+    }
+
+    /**
+     * Releases accommodation for another user.
+     */
+    public void releaseBooking() {
+        if (bookedBy != null) {
+            System.out.println(bookedBy.getFullName() + " has released booking for " + name);
+            bookedBy = null;
+        }
+    }
+
+    /**
+     * Calculates total price.
+     */
     public double getTotalPrice(int nights) {
         return pricePerNight * nights;
     }
 
-    // Abstract Method (Abstraction + Polymorphism)
+    /**
+     * Each accommodation type must describe itself.
+     */
     public abstract String getDescription();
 
-    // Shared Method (common for all subclasses)
+    /**
+     * Prints full accommodation details.
+     */
     public void printDetails() {
         System.out.println("Accommodation: " + name);
         System.out.println("Location: " + location);
         System.out.println("Price per night: £" + pricePerNight);
         System.out.println("Capacity: " + capacity);
-        if (facility != null) {
-            System.out.println("Facility: " + facility.getName() + " - " + facility.getDescription());
+
+        System.out.println("Facilities:");
+        for (Facility f : facilities) {
+            System.out.println(" - " + f.getName() + ": " + f.getDescription());
         }
+
         System.out.println("Description: " + getDescription());
+
+        if (bookedBy == null) {
+            System.out.println("Status: Available");
+        } else {
+            System.out.println("Status: Booked by " + bookedBy.getFullName());
+        }
+
         System.out.println("---------------------------------------");
     }
-
 }
